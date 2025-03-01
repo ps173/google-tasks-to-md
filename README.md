@@ -14,5 +14,5 @@ Currently this is not made to serve people and is a temporary hack for my person
 
 ### TODOs
 
-- [] Create a sync command to automatically update the edited TODOs to Google tasks
+- [ ] Create a sync command to automatically update the edited TODOs to Google tasks
 - [x] Children items should be nested inside of the parent
