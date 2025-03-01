@@ -13,7 +13,7 @@ export async function saveCredentials(
   refreshTokenExpiry: number
 ) {
   const currentTime = new Date();
-  await prisma.credential.create({
+  return await prisma.credential.create({
     data: {
       refresh_token: refreshToken,
       access_token: accessToken,
@@ -28,7 +28,7 @@ export async function saveCredentials(
 }
 
 export async function getCredentials() {
-  return prisma.credential.findFirst({
+  return await prisma.credential.findFirst({
     orderBy: {
       id: "desc",
     },
@@ -43,7 +43,7 @@ export async function updateCredentials(
   refreshTokenExpiry: number
 ) {
   const currentTime = new Date();
-  await prisma.credential.update({
+  return await prisma.credential.update({
     where: { id },
     data: {
       refresh_token: refreshToken,

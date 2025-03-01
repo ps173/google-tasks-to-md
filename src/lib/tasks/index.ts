@@ -68,3 +68,26 @@ export async function exchangeAuthCode(authCode: string) {
 
   return response.json();
 }
+
+export async function regenerateAccessToken(refreshToken: string) {
+  const tokenUrl = "https://oauth2.googleapis.com/token";
+  const params = new URLSearchParams();
+  params.append("client_id", clientId);
+  params.append("client_secret", clientSecret);
+  params.append("refresh_token", refreshToken);
+  params.append("grant_type", "refresh_token");
+
+  const response = await fetch(tokenUrl, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: params.toString(),
+  });
+
+  if (!response.ok) {
+    throw new Error(`Error regenerating access token: ${response.statusText}`);
+  }
+
+  return response.json();
+}
