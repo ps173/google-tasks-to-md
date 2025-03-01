@@ -1,0 +1,16 @@
+datasource db {
+    provider = "sqlite"
+    url      = "file:./database.db"
+}
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+model Credential {
+    id                 Int      @id @default(autoincrement())
+    refresh_token      String
+    access_token       String
+    accessTokenExpiry  DateTime
+    refreshTokenExpiry DateTime
+}

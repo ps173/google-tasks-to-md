@@ -1,0 +1,23 @@
+{
+  "name": "tasks-to-md",
+  "module": "src/index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "migrate:dev": "prisma migrate dev",
+    "main": "bun run src/index.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.4.1",
+    "commander": "^13.1.0",
+    "dayjs": "^1.11.13",
+    "inquirer": "^12.4.2",
+    "prisma": "^6.4.1"
+  }
+}
